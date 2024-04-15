@@ -54,7 +54,27 @@ Welcome to Dragon Repeller. You must defeat the dragon that is preventing people
 25) Now we need some quick styling. Start by giving the body a background-color set to #0a0a23.
 26) Give the #text element a background-color of #0a0a23, a color of #ffffff, and 10px of padding on all sides.
 27) Give your #game a maximum width of 500px and a maximum height of 400px. Set the background-color to #ffffff and the color to #ffffff.
-
 Use margins to center it by setting the top margin to 30px, bottom margin to 0px, and the left and right margin to auto.
-
 Finally, give it 10px of padding on all four sides. 
+28) Using a selector list (selector1, selector2) give both your #controls and #stats elements a border of 1px solid #0a0a23, a #0a0a23 text color, and 5px of padding.
+29) Give your #monsterStats element the same border and padding as your #stats element. Set its color to #ffffff and give it a #c70d0d background.
+30) hide monsterStats with display property;
+31) Next, give your .stat elements a padding-right of 10px.
+32) Finally, you will need to add some styles for your buttons. Start by setting the cursor property to pointer. Then set the text color to #0a0a23 and the background-color to #feac32.
+Then set the background-image property to linear-gradient(#fecc4c, #ffac33). Lastly, set the border to 3px solid #feac32.
+33) Just like you did with the buttons, create variables for the following ids and use querySelector() to give them the element as a value:
+text, xpText, healthText, goldText, monsterStats, and monsterName.
+Remember to declare these with the const keyword, and name the variables to match the ids.
+34) Finally, use querySelector() to get the #monsterHealth element. Because you have already declared a monsterHealth variable earlier, you need to use a different variable name for this element.
+Declare a new variable with the const keyword and name it monsterHealthText.
+35) Functions are special tools that allow you to run sections of code at specific times. You can declare functions using the function keyword. Here is an example of a function called functionName - note the opening and closing curly braces. These indicate the section of code that is within the function.
+function functionName() {
+
+}
+Create an empty function named goStore.
+36) For now, make your goStore function output the message "Going to store." to the console. For example, here is a function that outputs the message "Hello World".
+function functionName() {
+    console.log("Hello World");
+}
+37) Now create a goCave function that prints "Going to cave." to the console.
+38) Now create a fightDragon function that prints "Fighting dragon." to the console.
