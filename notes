@@ -1,3 +1,8 @@
+### pyramid Generator ###
+
+
+
+
 ### Build Role Playing games ###
 
 1) JavaScript is a powerful language which allows you to build websites that are interactive
@@ -78,3 +83,47 @@ function functionName() {
 }
 37) Now create a goCave function that prints "Going to cave." to the console.
 38) Now create a fightDragon function that prints "Fighting dragon." to the console.
+39) comments
+40) button1 represents your first button element. These elements have a special property called onclick, which you can use to determine what happens when someone clicks that button.
+You can access properties in JavaScript a couple of different ways. The first is with dot notation. Here is an example of using dot notation to set the onclick property of a button to a function reference.
+button.onclick = myFunction;
+In this example, button is the button element, and myFunction is a reference to a function. When the button is clicked, myFunction will be called.
+Use dot notation to set the onclick property of your button1 to the function reference of goStore. Note that button1 is already declared, so you don't need to use let or const.
+41) follow the same step for button 2 and button 3
+42) The innerText property controls the text that appears in an HTML element.
+// <p id="info">Demo content</p> 
+const info = document.querySelector("#info"); 
+info.innerText = "Hello World"; 
+The following example would change the text of the p element from Demo content to Hello World.
+43) assign buyHealth method to button 1
+44) assign buyWeapon and goTown method to button2 and button3
+45) change the inner text of display text
+48) In your goTown function, change your button elements' innerText properties to be "Go to store", "Go to cave", and "Fight dragon". Update your onclick properties to be goStore, goCave, and fightDragon, respectively.
+Finally, update innerText property of your text to be "You are in the town square. You see a sign that says Store.".
+49) You need to wrap the text Store in double quotes. Because your string is already wrapped in double quotes, you'll need to escape the quotes around Store. You can escape them with a backslash \. Here is an example:
+50) You have repetition in the goTown and goStore functions. When you have repetition in your code, this is a sign that you need another function. Functions can take parameters, which are values that are given to the function each time it is run. Here is a function that takes a parameter called param:
+function myFunction(param) {
+    console.log(param);
+}
+Create an empty update function that takes a parameter called location.
+51) In your role playing game, you will be able to visit different locations like the store, the cave, and the town square. You will need to create a data structure that will hold the different locations.
+Use const to create a variable called locations and assign it an empty array.
+52) In your role playing game, you will be able to visit different locations like the store, the cave, and the town square. You will need to create a data structure that will hold the different locations.
+Use const to create a variable called locations and assign it an empty array.
+53) Before you can begin to build out your locations array, you will first need to learn about objects. Objects are an important data type in JavaScript. The next few steps will be dedicated to learning about them so you will better understand how to apply them in your project.
+Objects are non primitive data types that store key-value pairs. Non primitive data types are mutable data types that are not undefined, null, boolean, number, string, or symbol. Mutable means that the data can be changed after it is created.
+Here is the basic syntax for an object:
+{
+  key: value
+}
+You will learn about keys and values in the next few steps.
+For now, create a const variable called cat and assign it an empty object {}.
+Below that cat variable, add a console.log(cat) statement to see the object in the console.
+54) Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through properties.
+Properties consist of a key and a value. The key is the name of the property, and the value is the data stored in the property.
+Here is an example of an object with a single property:
+const obj = {
+  name: "Quincy Larson"
+};
+Inside your cat object, add a new property. The key should be name and the value should be the string "Whiskers".
+Open up the console to see the updates to your object.
