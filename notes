@@ -477,3 +477,69 @@ const obj = {
 };
 Inside your cat object, add a new property. The key should be name and the value should be the string "Whiskers".
 Open up the console to see the updates to your object.
+55) If the property name (key) of an object has a space in it, you will need to use single or double quotes around the name.
+Here is an example of an object with a property name that has a space:
+const spaceObj = {
+  "Space Name": "Kirk",
+};
+If you tried to write a key without the quotes, it would throw an error:
+const spaceObj = {
+  // Throws an error
+  Space Name: "Kirk",
+}; 
+56) There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.
+Dot notation is what you use when you know the name of the property you're trying to access ahead of time.
+object.property;
+Here is a sample of using dot notation (.) to read the name property of the developer object:
+const developer = {
+  name: "Jessica",
+}
+// Output: Jessica
+console.log(developer.name); 
+Update your console statement to access the name property of the cat object using dot notation.
+Open up the console to see the name of "Whiskers" logged to the console.
+57) The second way to access the properties of an object is bracket notation ([]). If the property of the object you are trying to access has a space in its name, you will need to use bracket notation.
+objectName["property name"];
+Here is a sample of using bracket notation to read an object's property:
+const spaceObj = {
+  "Space Name": "Kirk",
+};
+spaceObj["Space Name"]; // "Kirk"
+Update your console statement to use bracket notation to access the property "Number of legs" of the cat object.
+Open up the console to see the output.
+58) Later on in the curriculum, you will dive deeper into objects. But for now, it is time to apply what you have learned to your role playing game.
+Start by deleting your cat object and console statement.
+59) Your locations array will hold different locations like the store, the cave, and the town square. Each location will be represented as an object.
+Inside your locations array, add an object. Inside that object add a key called name with a value of "town square".
+Remember to follow this syntax:
+{
+  key: value
+}
+60) Just like array values, object properties are separated by a comma. Add a comma after your name property and add a button text property with the value of an empty array.
+Since the property name has a space in it, you will need to surround it with quotes.
+{
+  name: "Naomi",
+  "favorite color": "purple"
+}
+61) Give your empty button text array three string elements. Use the three strings being assigned to the button innerText properties in the goTown function. Remember that array values are separated by commas.
+62) Create another property in your object called button functions. Give this property an array containing the three functions assigned to the onclick properties in the goTown function. Remember that these functions are variables, not strings, and should not be wrapped in quotes.
+63) Add one final property to the object named text. Give this property the same string value as the one assigned to text.innerText in the goTown function.
+64) Now you can consolidate some of your code. Start by copying the code from inside the goTown function and paste it into your update function. Then, remove all the code from inside the goTown and goStore functions.
+65) Instead of assigning the innerText and onclick properties to specific strings and functions, the update function will use data from the location that is passed into it. First, that data needs to be passed.
+Inside the goTown function, call the update function. Here is an example of calling a function named myFunction:
+myFunction();
+66) Now it is time to use your update function. Pass in your locations array into the update function call.
+You pass arguments by including them within the parentheses of the function call. For example, calling myFunction with an arg argument would look like:
+myFunction(arg)
+Pass your locations array into the update call.
+67) The locations array contains two locations: the "town square" and the "store". Currently you are passing that entire array into the update function.
+Pass in only the first element of the locations array by adding [0] at the end of the variable. For example: myFunction(arg[0]);.
+This is called bracket notation. Values in an array are accessed by index. Indices are numerical values and start at 0 - this is called zero-based indexing. arg[0] would be the first element in the arg array.
+68) Now your update function needs to use the argument you pass into it.
+Inside the update function, change the value of the button1.innerText assignment to be location["button text"]. That way, you use bracket notation to get the "button text" property of the location object passed into the function.
+67) location["button text"] is an array with three elements. Change the button1.innerText assignment to be location["button text"][0] which represents the first element of the array.
+68) Now update button2.innerText and button3.innerText to be assigned the second and third values of the "button text" array, respectively.
+69) Following the same pattern as you did for the button text, update the three buttons' onclick assignments to be the first, second, and third values of the "button functions" array.
+70) Now update your goStore function to call the update function. Pass the second element of the locations array as your argument.
+To make sure your refactoring is correct, try clicking your first button again. You should see the same changes to your webpage that you saw earlier.
+71) Create two more empty functions named fightSlime and fightBeast. These functions will be used in your upcoming cave object.
