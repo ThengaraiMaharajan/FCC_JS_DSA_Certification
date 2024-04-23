@@ -543,3 +543,76 @@ Inside the update function, change the value of the button1.innerText assignment
 70) Now update your goStore function to call the update function. Pass the second element of the locations array as your argument.
 To make sure your refactoring is correct, try clicking your first button again. You should see the same changes to your webpage that you saw earlier.
 71) Create two more empty functions named fightSlime and fightBeast. These functions will be used in your upcoming cave object.
+73) Add a third object to the locations array. Give it the same properties as the other two objects.
+Set name to cave. Set button text to an array with the strings "Fight slime", "Fight fanged beast", and "Go to town square". Set the "button functions" to an array with the variables fightSlime, fightBeast, and goTown. Set the text property to "You enter the cave. You see some monsters.".
+74) Now that you have a "cave" location object, update your goCave function to call update and pass that new "cave" location. Remember that this is the third element in your locations array.
+Don't forget to remove your console.log call!
+75) Now that your "store" and "cave" locations are complete, you can code the actions the player takes at those locations. Inside the buyHealth function, set gold equal to gold minus 10.
+For example, here is how you would set num equal to 5 less than num: num = num - 5;.
+76) After the gold is updated, add a line to set health equal to health plus 10.
+77) There is a shorthand way to add or subtract from a variable called compound assignment. For example, changing num = num + 5 to compound assignment would look like num += 5.
+Update both lines inside your buyHealth function to use compound assignment.
+78) Now that you are updating the gold and health variables, you need to display those new values on the game screen.
+After your assignment lines, assign the innerText property of goldText to be the variable gold. Use the same pattern to update healthText with the health variable.
+Here is an example:
+let value = 100;
+const total = document.querySelector('#total');
+total.innerText = value;
+You can test this by clicking your "Go to store" button, followed by your "Buy Health" button.
+Note: Your answer should only be two lines of code.
+79) What if the player doesn't have enough gold to buy health? You should use an if statement to check if the player has enough gold to buy health.
+
+In the previous project, you learned how to work with if statements like this:
+
+const num = 5;
+if (num >= 3) {
+  console.log("This code will run because num is greater than or equal to 3.");
+}
+Start by placing all of the code in your buyHealth function inside an if statement. For the if statement condition, check if gold is greater than or equal to 10.
+80) Now when a player tries to buy health, it will only work if they have enough money. If they do not, nothing will happen. Add an else statement where you can put code to run if a player does not have enough money.
+
+In the previous project, you learned how to work with else statements like this:
+
+if (num >= 5) {
+
+} else {
+
+}
+81) Inside the else statement, set text.innerText to equal "You do not have enough gold to buy health.".
+82) Use const to create a weapons variable above your locations array. Assign it an empty array.
+83) Just like your locations array, your weapons array will hold objects. Add four objects to the weapons array, each with two properties: name and power. The first should have the name set to "stick" and the power set to 5. The second should be "dagger" and 30. The third, "claw hammer" and 50. The fourth, "sword" and 100
+84) Inside your buyWeapon function, add an if statement to check if gold is greater than or equal to 30.
+85) Similar to your buyHealth function, set gold equal to 30 less than its current value. Make sure this is inside your if statement.
+86) The value of the currentWeapon variable corresponds to an index in the weapons array. The player starts with a "stick", since currentWeapon starts at 0 and weapons[0] is the "stick" weapon.
+In the buyWeapon function, use compound assignment to add 1 to currentWeapon - the user is buying the next weapon in the weapons array.
+87) In the previous project, you learned how to use the increment operator to increase a variable by 1.
+let num = 5;
+num++;
+// prints 6
+console.log(num); 
+Change your currentWeapon assignment to use the increment operator.
+88) You should tell the player what weapon they bought. In between the two lines you just wrote, use let to initialize a new variable called newWeapon. Set this to equal weapons.
+89) Use bracket notation to access an object within the weapons array and assign it to your newWeapon variable. Place the variable currentWeapon within the brackets.
+When you use a variable in bracket notation, you are accessing the property or index by the value of that variable.
+For example, this code uses the index variable to access a value of array.
+let value = array[index];
+90) weapons[currentWeapon] is an object. Use dot notation to get the name property of that object.
+91) In the previous project, you learned how to work with the concatenation operator to insert variables into a string like this:
+const organization = "freeCodeCamp";
+// "Hello, our name is freeCodeCamp."
+"Hello, our name is " + organization + ".";
+Update the string "You now have a new weapon." to "You now have a " followed by the name of the new weapon, and remember to end the sentence with a period.
+92) Back at the beginning of this project, you created the inventory array. Add the newWeapon to the end of the inventory array using the push() method.
+In the previous project, you learned how to work with the push method like this:
+const myArray = [];
+myArray.push("new item");
+// myArray is now ["new item"]
+93) Up until now, any time text.innerText was updated, the old text was erased. This time, use the += operator to add text to the end of text.innerText.
+
+Add the string " In your inventory you have: " - include the spaces at the beginning and the end.
+94) Once a player has the best weapon, they cannot buy another one. Wrap all of the code in your buyWeapon function inside another if statement. The condition should check if currentWeapon is less than 3 - the index of the last weapon.
+95) Arrays have a length property that returns the number of items in the array. You may want to add new values to the weapons array in the future.
+Change your if condition to check if currentWeapon is less than the length of the weapons array. An example of checking the length of an array myArray would look like myArray.length.
+96) You now have an error to fix. The currentWeapon variable is the index of the weapons array, but array indexing starts at zero. The index of the last element in an array is one less than the length of the array.
+Change the if condition to check weapons.length - 1, instead of weapons.length.
+97) Add an else statement for your outer if statement. Inside this new else statement, set text.innerText to "You already have the most powerful weapon!".
