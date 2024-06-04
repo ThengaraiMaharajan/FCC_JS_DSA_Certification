@@ -1171,3 +1171,5 @@ Use the getAverage function to get the class average.
 Use the getGrade function to get the student's grade.
 Use string concatenation (+) to build the message.
 Be careful with the punctuation and spaces in the message.
+
+### Basic String and Array Operation  ###
