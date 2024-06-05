@@ -1469,3 +1469,47 @@ Set userData.currentSong to null and userData.songCurrentTime to 0.
 Note: You should not use optional chaining for this step because you are explicitly setting the currentSong and songCurrentTime properties to be null and 0 respectively.
 79) You should also re-render the songs, pause the currently playing song, set the player display, and set the play button accessible text again.
 Call the renderSongs function and pass in userData?.songs as an argument. Also, call the pauseSong, setPlayerDisplay, and setPlayButtonAccessibleText functions.
+80) 
+81)
+82)
+83)
+84)
+85)
+86)
+87)
+88) If the playlist is empty, you need to create a resetButton element and a text for it. This button will only show up if the playlist is empty.
+createElement() is a DOM method you can use to dynamically create an element using JavaScript. To use createElement(), you call it, then pass in the tag name as a string:
+// syntax
+document.createElement(tagName)
+// example
+document.createElement('div')
+You can also assign it to a variable:
+const divElement = document.createElement('div')
+Inside your if statement, declare a resetButton constant, then use createElement() to create a "button".
+89) Now that you've created the button, you need to assign it a text. To do this, you need to use the createTextNode() method of DOM.
+The createTextNode() method is used to create a text node. To use it, you call it and pass in the text as a string:
+document.createTextNode("your text")
+You can also assign it to a variable:
+const myText = document.createTextNode("your text")
+Use the createTextNode() method to create a "Reset Playlist" text, then assign it to a resetText constant.
+90) Now that you've created the resetButton, you need to assign it an id and aria-label attributes. JavaScript provides the id and ariaLabel properties you need to use for this.
+For example, element.id would set an id attribute, and element.ariaLabel would set an aria-label attribute. Both of them accept their values as a string.
+Set the id attribute of resetButton to "reset" and its "aria-label" attribute to "Reset playlist".
+91) You need to add the resetText to the resetButton element as a child, and also the resetButton to the playlistSongs element as a child. For this, there is an appendChild() method to use.
+appendChild() lets you add a node or an element as the child of another element. In the example below, the text "Click me" would be attached to the button:
+const parentElement = document.createElement("button")
+const parentElementText = document.createTextNode("Click me")
+// attach the text "Click me" to the button
+parentElement.appendChild(parentElementText)
+Use appendChild() to attach resetText to resetButton element, and resetButton to the playlistSongs element.
+92) Now, it's time to add the reset functionality to the resetButton. This will bring back the songs in the playlist when clicked.
+Add a click event listener to the resetButton variable. Pass in a callback using arrow syntax and leave it empty for now.
+93) To reset the playlist to its original state, spread allSongs into an array and assign it to userData.songs.
+Note: You should not use optional chaining for the userData.songs because the song will not be null or undefined at this point.
+94) 
+95) All the core functionalities are now in place. The only issue now is that the next song does not automatically play when the currently playing song ends.
+To fix that, you can set up an event listener which will detect when the currently playing song ends. The "ended" event listener is appropriate for this. It is fired when the playback of a media reaches the end.
+Add an event listener to the audio element which listens for the "ended" event. Pass in a callback using arrow syntax with empty curly braces.
+96) Notice that the album art in the HTML and songs in the userData.songs array have changed. We've swapped out the original songs for shorter ones that you can use to test your app in the upcoming steps.
+Next, you need to check if there is a next song to play. Retrieve the current song index by calling the getCurrentSongIndex() function, and save it in a currentSongIndex constant.
+After that, create a nextSongExists constant that contains the boolean value true or false depending on if the next song exists.
