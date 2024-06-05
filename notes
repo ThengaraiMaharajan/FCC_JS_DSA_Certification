@@ -1437,3 +1437,35 @@ Use the forEach method on playlistSongElements. Pass in songEl as the parameter 
 Create an if statement with the condition songToHighlight. For the statement, use setAttribute on songToHighlight to pass in "aria-current" and "true" as the first and second arguments.
 66) Inside the playSong function, call the highlightCurrentSong function.
 After that, play around with the control buttons to see how the highlightCurrentSong function works.
+67) 
+68) Inside the function, obtain references to the HTML elements responsible for displaying the song title and artist.
+Access the #player-song-title and #player-song-artist elements with the getElementById() method. Assign them to variables playingSong and songArtist respectively.
+69) Access the userData?.currentSong?.title and userData?.currentSong?.artist properties and assign them to a currentTitle and currentArtist variables respectively.
+70) textContent sets the text of a node and allows you to set or retrieve the text content of an HTML element.
+<div id="example">This is some text content</div>
+const element = document.getElementById('example');
+console.log(element.textContent); // Output: This is some text content
+Use a ternary operator to check if currentTitle evaluates to a truthy value. If it does, set playingSong.textContent to currentTitle. Otherwise, set it to an empty string.
+Then below that, use a ternary operator to check if currentArtist is truthy. If so, set songArtist.textContent to currentArtist. Otherwise, set it to empty string.
+71) To ensure the player's display updates whenever a new song begins playing, call the setPlayerDisplay() function within the playSong() function.
+Now you should see the song title and the artist show up in the display.
+72) To make the application more accessible, it is important that the play button describes the current song or the first song in the playlist.
+Start by creating an empty arrow function called setPlayButtonAccessibleText.
+73) You need to get the currently playing song or the first song in the playlist. To do that, create a song constant and use the OR operator (||) to set it to the current song of userData, or the first song in the userData?.songs array.
+Don't forget to use optional chaining.
+74) The setPlayButtonAccessibleText function will set the aria-label attribute to the current song, or to the first song in the playlist. And if the playlist is empty, it sets the aria-label to "Play".
+Use the setAttribute method on the playButton element to set an attribute named "aria-label". For the value, use a ternary to set song?.title to Play ${song.title} or "Play" if there's no song.title available.
+Don't forget you need template interpolation here, so you need to use backticks.
+75) Now, call the setPlayButtonAccessibleText function inside the playSong function.
+76) Using const and arrow syntax to create an empty function called shuffle.
+This function is responsible for shuffling the songs in the playlist and performing necessary state management updates after the shuffling.
+77) In earlier steps, you learned how to work with the sort() method to sort the songs in alphabetical order. Another use case for the callback function is to randomize an array.
+One way to randomize an array of items would be to subtract 0.5 from Math.random() which produces random values that are either positive or negative. This makes the comparison result a mix of positive and negative values, leading to a random ordering of elements.
+const names = ["Tom", "Jessica", "Quincy", "Naomi"];
+names.sort(() => Math.random() - 0.5);
+Use the sort() method on the userData?.songs array. Pass a callback to the method, and return the result of Math.random() - 0.5.
+78) When the shuffle button is pressed, you want to set the currentSong to nothing and the songCurrentTime to 0.
+Set userData.currentSong to null and userData.songCurrentTime to 0.
+Note: You should not use optional chaining for this step because you are explicitly setting the currentSong and songCurrentTime properties to be null and 0 respectively.
+79) You should also re-render the songs, pause the currently playing song, set the player display, and set the play button accessible text again.
+Call the renderSongs function and pass in userData?.songs as an argument. Also, call the pauseSong, setPlayerDisplay, and setPlayButtonAccessibleText functions.
