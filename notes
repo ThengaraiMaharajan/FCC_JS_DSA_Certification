@@ -1173,3 +1173,267 @@ Use string concatenation (+) to build the message.
 Be careful with the punctuation and spaces in the message.
 
 ### Basic String and Array Operation  ###
+1) In this project you will learn basic string and array methods by building a music player app. You will be able to play, pause, skip, and shuffle songs.
+The HTML and CSS of this project have been provided for you, so you can focus on the JavaScript.
+Start by accessing the #playlist-songs, #play, and #pause elements with the getElementById() method. Assign them to variables playlistSongs, playButton and pauseButton respectively.
+2) Access the #next, #previous and #shuffle elements from the HTML file.
+Assign them to variables named nextButton, previousButton, and shuffleButton, respectively.
+3) Next, create an array to store all the songs.
+Create an empty allSongs array.
+4) Inside the allSongs array, create an object with the following properties and values:
+5) Add a second object with the following keys and values:
+6) Add a third object with the following properties and values:
+7) We've added the rest of the songs to the allSongs array for you.
+Next, you'll learn about the Web Audio API and how to use it to play songs. All modern browsers support the Web Audio API, which lets you generate and process audio in web applications.
+Use const to create a variable named audio and set it equal to new Audio(). This will create a new HTML5 audio element.
+8) Your music player should keep track of the songs, the current song playing, and the time of the current song. To do this, you will need to create an object to store this information.
+Start by using the let keyword to declare a new variable called userData and assign it an empty object.
+9) Since users will be able to shuffle and delete songs from the playlist, you will need to create a copy of the allSongs array without mutating the original. This is where the spread operator comes in handy.
+The spread operator (...) allows you to copy all elements from one array into another. It can also be used to concatenate multiple arrays into one. In the example below, both arr1 and arr2 have been spread into combinedArr:
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combinedArr = [...arr1, ...arr2];
+console.log(combinedArr); // Output: [1, 2, 3, 4, 5, 6]
+Inside the userData object create a songs property. For the value, spread allSongs into an array.
+10) To handle the current song's information and track its playback time, create a currentSong and songCurrentTime properties. Set the values to null and 0 respectively.
+11) In the previous projects, you used regular functions. But in the rest of the projects, you will be working with arrow functions. The next few steps will focus on teaching you the basics of arrow functions.
+An arrow function is an anonymous function expression and a shorter way to write functions. Anonymous means that the function does not have a name. Arrow functions are always anonymous.
+Here is the basic syntax:
+() => {}
+To create a named arrow function, you can assign the function to a variable:
+const exampleFunction = () => {
+  // code goes here
+}
+Create a new named arrow function called printGreeting. Inside the body of that function use the console.log() method to print the string "Hello there!".
+12) 
+13) Just like regular functions, arrow functions can accept multiple parameters.
+Here is an example of a named arrow function with one parameter:
+const greet = (name) => {
+  console.log(`Hello, ${name}!`);
+};
+If the function only has one parameter, you can omit the parentheses around the parameter list like this:
+const greet = name => {
+  console.log(`Hello, ${name}!`);
+};
+Create a new named arrow function called printMessage that has one parameter called org. Inside the body of that function, add a console statement. Inside that console statement, add the template literal ${org} is awesome!.
+Below your printMessage function, call the function and pass in the string "freeCodeCamp" as an argument.
+Open up the console to see the result.
+14) Just like regular functions, arrow functions can return values.
+Here is an example of an arrow function returning the result of multiplying two numbers:
+const multiplyTwoNumbers = (num1, num2) => {
+  return num1 * num2;
+}
+// Output: 12
+console.log(multiplyTwoNumbers(3, 4)); 
+Create a new variable called addTwoNumbers and assign it an arrow function. This arrow function should take two parameters called num1 and num2. Inside the body of the function, return the expression of adding num1 and num2.
+Below the addTwoNumbers function, add a console statement. Inside that console statement, call the addTwoNumbers function and pass in the numbers 3 and 4 as arguments.
+Open up the console to see the output.
+15) If the arrow function is returning a simple expression, you can omit the return keyword and the curly braces {}. This is called an implicit return.
+const multiplyTwoNumbers = (num1, num2) => num1 * num2;
+If your arrow function has multiple lines of code in the function body, then you need to use the return keyword and the curly braces {}.
+const getTax = (price) => {
+  const taxRate = 0.08;
+  const tax = price * taxRate;
+  return tax;
+};
+Refactor, or update, your addTwoNumbers function to remove the return keyword and the curly braces {}. Your addTwoNumbers function should instead use an implicit return.
+Open up the console to make sure that you are still getting the correct output.
+16) Now it is time to apply what you have learned about arrow functions to your music player project.
+Start by removing the printGreeting, printMessage, and addTwoNumbers functions. Also, remove all of the console statements and function calls.
+17) To display the songs in the UI (User Interface), you'll need to create a function.
+Use the arrow function syntax to create a renderSongs function that takes in array as its parameter.
+18) When the songs are displayed on the page, it should show the title, artist, duration of each song and a delete button.
+In the next few steps, you will learn how to add new HTML for each song using the map() method. This method will be explained in more detail in the next step.
+Start by using const to declare a variable named songsHTML and assign it array.map().
+19) The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing array. For example:
+const numbers = [1, 2, 3];
+const doubledNumbers = numbers.map((number) => number * 2); // doubledNumbers will be [2, 4, 6]
+Notice that the map() method takes a function as an argument. This is called a callback function, which is a function that is passed to another function as an argument. In the example above, the callback function is (number) => number * 2, and it's run on each element in the numbers array. The map() method then returns a new array with the results.
+Pass in a callback function to the map() method. The callback function should take song as a parameter, use the arrow function syntax, and have an empty body.
+20) Inside the map(), add a return statement with backticks where you will interpolate all the elements responsible to displaying the song details.
+Inside the backticks, create an li element with an id attribute of song-${song.id} and a class attribute of playlist-song.
+21) Create a button element with class playlist-song-info. Inside the button, add a span element with the class playlist-song-title, then interpolate song.title as the text.
+22) Inside the button element, create two more span elements.
+The first span element should have a class of playlist-song-artist. In between the span tags, add ${song.artist}.
+The second span element should have a class of playlist-song-duration. In between the span tags, add ${song.duration}.
+23) Create another button element with the class playlist-song-delete and the aria-label attribute set to Delete interpolated with song.title. For the content of the delete icon, paste in the following SVG:
+24) Right now the songsHTML is an array. If you tried to display this as is, you would see the songs separated by commas. This is not the desired outcome because you want to display the songs as a list. To fix this, you will need to join the array into a single string by using the join() method.
+The join() method is used to concatenate all the elements of an array into a single string. It takes an optional parameter called a separator which is used to separate each element of the array. For example:
+const exampleArr = ["This", "is", "a", "sentence"];
+const sentence = exampleArr.join(" "); // Separator takes a space character
+console.log(sentence); // Output: "This is a sentence"
+Chain the join() method to your map() method and pass in an empty string for the separator.
+To chain multiple methods together, you can call the join() method on the result of the map() method. For example:
+array.map().join();
+25) Next, you will need to update the playlist in your HTML document to display the songs.
+Assign songsHTML to the innerHTML property of the playlistSongs element. This will insert the li element you just created into the ul element in the already provided HTML file.
+26) Now you need to call the renderSongs function and pass in userData?.songs in order to finally display the songs in the UI.
+Optional chaining (?.) helps prevent errors when accessing nested properties that might be null or undefined. For example:
+const user = {
+  name: "Quincy",
+  address: {
+    city: "San Francisco",
+    state: "CA",
+    country: "USA",
+  },
+};
+// Accessing nested properties without optional chaining
+const state = user.address.state; // CA
+// Accessing a non-existent nested property with optional chaining
+const zipCode = user.address?.zipCode; // Returns undefined instead of throwing an error
+Call the renderSongs function with the songs property of userData. This will render the songs in the playlist.
+27) Now that you have the list of songs displayed on the screen, it would be nice to sort them in alphabetical order by title.
+Start by creating an arrow function called sortSongs.
+28) Now that you have the list of songs displayed on the screen, it would be nice to sort them in alphabetical order by title. You could manually update the allSongs array, but JavaScript has an array method you can use called sort().
+The sort() method converts elements of an array into strings and sorts them in place based on their values in the UTF-16 encoding.
+const names = ["Tom", "Jessica", "Quincy", "Naomi"];
+names.sort() // ["Jessica", "Naomi", "Quincy", "Tom"]
+Inside your sortSongs function, add the sort() method to userData?.songs.
+29) To sort the songs in alphabetical order by title, you will need to pass in a compare callback function into your sort() method.
+Here is an example of sorting a list of fruits by name.
+const fruits = [
+  { name: "Apples", price: 0.99 },
+  { name: "Blueberries", price: 1.49 },
+  { name: "Grapes", price: 2.99 },
+];
+fruits.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+});
+In the next few steps, you will learn what each of those if statements is doing inside that callback function. But for now, add an empty callback function to your sort() method and use a and b for the parameter names.
+30) The sort() method accepts a compare callback function that defines the sort order.
+In this example, the first condition (a.name < b.name) checks if the name of the first fruit is less than the name of the second fruit. If so, the first fruit is sorted before the second fruit.
+Strings are compared lexicographically which means they are compared character by character. For example, "Apples" is less than "Bananas" because "A" comes before "B" in the alphabet.
+The reason why this example is returning numbers is because the sort() method is expecting a number to be returned. If you return a negative number, the first item is sorted before the second item.
+const fruits = [
+  { name: "Apples", price: 0.99 },
+  { name: "Blueberries", price: 1.49 },
+  { name: "Grapes", price: 2.99 },
+];
+fruits.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+});
+Inside your callback function, add an if statement to check if a.title is less than b.title. If so, return -1. 
+31) The second condition in this example checks if a.name > b.name. If so, the function returns 1, which sorts the first fruit after the second fruit.
+const fruits = [
+  { name: "Apples", price: 0.99 },
+  { name: "Blueberries", price: 1.49 },
+  { name: "Grapes", price: 2.99 },
+];
+fruits.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+});
+Inside your callback function, add another if statement to check if a.title is greater than b.title. If so, return the number 1.
+32) In the example, if a.name is equal to b.name, then the function returns 0. This means that nothing changes and the order of a and b remains the same.
+const fruits = [
+  { name: "Apples", price: 0.99 },
+  { name: "Blueberries", price: 1.49 },
+  { name: "Grapes", price: 2.99 },
+];
+fruits.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+});
+Below your if statements, return the number 0 to leave the order of the two elements unchanged.
+33) The last step for the sortSongs function is to return userData?.songs.
+34) Right now the song order has not changed. That is because the updates you made using the sort method will not happen until the sortSongs function is called.
+Change your renderSongs function to call the sortSongs function.
+Now you should see the songs in alphabetical order.
+35) It's time to begin implementing the functionality for playing the displayed songs.
+Define a playSong function using const. The function should take an id parameter which will represent the unique identifier of the song you want to play.
+36) The find() method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.
+In the example below, the find() method is used to find the first number greater than 25:
+const numbers = [10, 20, 30, 40, 50];
+// Find the first number greater than 25
+const foundNumber = numbers.find((number) => number > 25);
+console.log(foundNumber); // Output: 30
+Use const to create a variable named song and assign it result of the find() method call on the userData?.songs array. Use song as the parameter of the find() callback and check if song.id is strictly equal to id.
+This will iterate through the userData?.songs array, searching for a song that corresponds to the id passed into the playSong function.
+37) Inside the playSong function, set the audio.src property equal to song.src. This tells the audio element where to find the audio data for the selected song.
+Also, set the audio.title property equal to song.title. This tells the audio element what to display as the title of the song.
+38) Before playing the song, you need to make sure it starts from the beginning. This can be achieved by the use of the currentTime property on the audio object.
+Add an if statement to check whether the userData?.currentSong is falsy OR if userData?.currentSong.id is strictly not equal song.id. This condition will check if no current song is playing or if the current song is different from the one that is about to be played.
+Inside if block, set the currentTime property of the audio object to 0.
+39) Add an else block to handle the current song's position in the playlist.
+Within the else block, set the currentTime property of the audio object to the value stored in userData?.songCurrentTime.
+40) You need to update the current song being played as well as the appearance of the playButton element.
+Assign song to the currentSong property on the userData object.
+Note: You should not use the optional chaining operator ?. in this step because userData.currentSong will not be null or undefined at this point.
+41) Next, use the classList property and the add() method to add the "playing" class to the playButton element. This will look for the class "playing" in the CSS file and add it to the playButton element.
+To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
+42) In previous steps you built out the functionality for playing a song. Now you need to add the functionality to the play button so that it will play the current song when it is clicked on.
+Use the addEventListener() method and pass in a "click" event for the first argument and an empty callback function with arrow syntax for the second argument, e.g., () => {}.
+43) Within the arrow function of the event listener, add an if to check if userData?.currentSong is falsey.
+Inside the if block, call the playSong() function with the id of the first song in the userData?.songs array. This will ensure the first song in the playlist is played first.
+44) Add an else block. Inside the else block, call the playSong function with the id of the currently playing song as an argument.
+This ensures that the currently playing song will continue to play when the play button is clicked.
+45) To play the song anytime the user clicks on it, add an onclick attribute to the first button element. Inside the onclick, call the playSong function with song.id.
+Don't forget you need to interpolate with the dollar sign here.
+46) Now you need to work on pausing the currently playing song.
+Define a pauseSong function using the const keyword and arrow function syntax. The function should take no parameters.
+47) To store the current time of the song when it is paused, set the songCurrentTime of the userData object to the currentTime of the audio variable.
+Note: You should not use optional chaining for this step because userData.songCurrentTime will not be null or undefined at this point.
+48) Use classList and remove() method to remove the .playing class from the playButton, since the song will be paused at this point.
+To finally pause the song, use the pause() method on the audio variable. pause() is a method of the Web Audio API for pausing music files.
+49) Now it is time to test out the pause button.
+Add a "click" event listener to the pauseButton element, then pass in pauseSong as the second argument of the event listener. This is the function the event listener will run.
+Test out your app by first clicking on the play button followed by the pause button. You should see that everything is working as expected.
+50) Before you start working on playing the next and previous song, you need to get the index of each song in the songs property of userData.
+Start by creating an arrow function called getCurrentSongIndex.
+51) To get the index for the current song, you can use the indexOf() method. The indexOf() array method returns the first index at which a given element can be found in the array, or -1 if the element is not present.
+const animals = ["dog", "cat", "horse"];
+animals.indexOf("cat") // 1
+Inside your getCurrentSongIndex function, return userData?.songs.indexOf(). For the indexOf() argument, set it to userData?.currentSong.
+52) You need to work on playing the next song and the previous song. For this, you will need a playNextSong and playPreviousSong function.
+Use const and arrow syntax to create an empty playNextSong function.
+53) Inside the playNextSong function, create an if statement to check if the currentSong of userData is strictly equal to null. This will check if there's no current song playing in the userData object.
+If the condition is true, call the playSong function with the id of the first song in the userData?.songs array as an argument.
+54) Add an else block to the if statement. Inside the else block, call the getCurrentSongIndex() function and assign it to a constant named currentSongIndex.
+55) Next, you will need to retrieve the next song in the playlist. For that, you will need to get the index of the current song and then add 1 to it.
+Create a constant called nextSong and assign userData?.songs[currentSongIndex + 1] to it.
+Lastly, call the playSong function and pass in nextSong.id as the argument.
+56) 
+57) Use const and arrow syntax to create an empty playPreviousSong function.
+58) Within the playPreviousSong function, add an if statement with a condition of userData?.currentSong === null. This will check if there is currently no song playing. If there isn't any, exit the function using a return.
+Inside the else block, create a constant named currentSongIndex and assign it getCurrentSongIndex().
+59) To get the previous song, subtract 1 from the currentSongIndex of userData?.songs and assign it to the constant previousSong. After that, call the playSong function and pass previousSong.id as an argument.
+60) Add a "click" event listener to the previousButton element, then pass in playPreviousSong as the second argument
+61) If you check closely, you'd see the currently playing song is not highlighted in the playlist, so you don't really know which song is playing. You can fix this by creating a function to highlight any song that is being played.
+Using an arrow syntax, create a highlightCurrentSong function. Inside the function, use querySelectorAll to get the .playlist-song element and assign to a playlistSongElements constant.
+62) You need to get the id of the currently playing song. For this, you can use userData?.currentSong?.id.
+Use getElementById() to get the id of the currently playing song, then use template literals to prefix it with song-. Assign it to the constant songToHighlight.
+63) Loop through the playlistSongElements with a forEach method.
+The forEach method is used to loop through an array and perform a function on each element of the array. For example, suppose you have an array of numbers and you want to log each number to the console.
+const numbers = [1, 2, 3, 4, 5];
+// Using forEach to iterate through the array
+numbers.forEach((number) => {
+  console.log(number); // 1, 2, 3, 4, 5
+});
+Use the forEach method on playlistSongElements. Pass in songEl as the parameter and use arrow syntax to add in an empty callback.
+64) Within the callback function, use the removeAttribute() method to remove the "aria-current" attribute. This will remove the attribute for each of the songs.
+65) Now you need to add the attribute back to the currently playing song.
+Create an if statement with the condition songToHighlight. For the statement, use setAttribute on songToHighlight to pass in "aria-current" and "true" as the first and second arguments.
+66) Inside the playSong function, call the highlightCurrentSong function.
+After that, play around with the control buttons to see how the highlightCurrentSong function works.
