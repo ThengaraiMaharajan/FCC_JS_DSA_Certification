@@ -1488,3 +1488,10 @@ Use an if statement to check if the userData?.currentSong?.id is equal to the id
 85) If there is a match then set userData.currentSong to null and userData.songCurrentTime to 0.
 After that, call the pauseSong() function to stop the playback and the setPlayerDisplay() function to update the player display.
 86) Within the button element in the renderSongs function, add an onclick attribute. For the value, call the deleteSong function and interpolate song.id.
+96) Notice that the album art in the HTML and songs in the userData.songs array have changed. We've swapped out the original songs for shorter ones that you can use to test your app in the upcoming steps.
+Next, you need to check if there is a next song to play. Retrieve the current song index by calling the getCurrentSongIndex() function, and save it in a currentSongIndex constant.
+After that, create a nextSongExists constant that contains the boolean value true or false depending on if the next song exists.
+97) Use an if statement to check if nextSongExists exists, then call the playNextSong() function in the if block. This will automatically play the next song when the current song ends.
+98) If there is no next song in the playlist, use the else block to reset the currentSong key of userData to null, and its songCurrentTime property to 0.
+99) With everything set in place, call the pauseSong(), setPlayerDisplay(), highlightCurrentSong(), and setPlayButtonAccessibleText() functions to correctly update the player.
+Congratulations on completing your music player! Now that we've finished testing and using the shorter songs, we've replaced them with the original tracks specially selected by Quincy for you to enjoy.
