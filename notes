@@ -1469,143 +1469,47 @@ Set userData.currentSong to null and userData.songCurrentTime to 0.
 Note: You should not use optional chaining for this step because you are explicitly setting the currentSong and songCurrentTime properties to be null and 0 respectively.
 79) You should also re-render the songs, pause the currently playing song, set the player display, and set the play button accessible text again.
 Call the renderSongs function and pass in userData?.songs as an argument. Also, call the pauseSong, setPlayerDisplay, and setPlayButtonAccessibleText functions.
-80) Add a "click" event listener to the shuffleButton element. For the function to run, pass in the shuffle function.
-Note: You don't need a callback inside this particular event listener. You also don't need to call the shuffle function, just pass in its identifier.
-81) It's time to implement a delete functionality for the playlist. This would manage the removal of a song from the playlist, handle other related actions when a song is deleted, and create a Reset Playlist button.
-Use const and arrow syntax to create an empty deleteSong function and pass in id as a parameter.
-82) Use the filter() method to remove the song object that matches the id parameter from the userData?.songs array.
-The filter method keeps only the elements of an array that satisfy the callback function passed to it:
-const numArr = [1, 10, 8, 3, 4, 5]
-const numsGreaterThanThree = numArr.filter((num) => num > 3);
-console.log(numsGreaterThanThree) // Output: [10, 8, 4, 5]
-Use the filter() method on userData?.songs. Pass in song as the parameter of the arrow function callback and use implicit return to check if song.id is strictly not equal to id. Assign all of that to the userData.songs.
-Note: You should not use optional chaining when you assign the result of userData?.songs.filter to userData.songs because the allSongs array will not be undefined or null at that point.
-83) You need to re-render the songs, highlight it and set the play button's accessible text since the song list will change.
-Call the renderSongs function and pass in the userData?.songs array as an argument, this displays the modified playlist.
-After that, call the highlightCurrentSong function to highlight the current song if there is any also and the setPlayButtonAccessibleText function to update the play button's accessible text.
-84) Before deleting a song, you need to check if the song is currently playing. If it is, you need to pause the song and play the next song in the playlist.
-Use an if statement to check if the userData?.currentSong?.id is equal to the id of the song you want to delete.
-85) If there is a match then set userData.currentSong to null and userData.songCurrentTime to 0.
-After that, call the pauseSong() function to stop the playback and the setPlayerDisplay() function to update the player display.
-86) Within the button element in the renderSongs function, add an onclick attribute. For the value, call the deleteSong function and interpolate song.id.
+80) 
+81)
+82)
+83)
+84)
+85)
+86)
+87)
+88) If the playlist is empty, you need to create a resetButton element and a text for it. This button will only show up if the playlist is empty.
+createElement() is a DOM method you can use to dynamically create an element using JavaScript. To use createElement(), you call it, then pass in the tag name as a string:
+// syntax
+document.createElement(tagName)
+// example
+document.createElement('div')
+You can also assign it to a variable:
+const divElement = document.createElement('div')
+Inside your if statement, declare a resetButton constant, then use createElement() to create a "button".
+89) Now that you've created the button, you need to assign it a text. To do this, you need to use the createTextNode() method of DOM.
+The createTextNode() method is used to create a text node. To use it, you call it and pass in the text as a string:
+document.createTextNode("your text")
+You can also assign it to a variable:
+const myText = document.createTextNode("your text")
+Use the createTextNode() method to create a "Reset Playlist" text, then assign it to a resetText constant.
+90) Now that you've created the resetButton, you need to assign it an id and aria-label attributes. JavaScript provides the id and ariaLabel properties you need to use for this.
+For example, element.id would set an id attribute, and element.ariaLabel would set an aria-label attribute. Both of them accept their values as a string.
+Set the id attribute of resetButton to "reset" and its "aria-label" attribute to "Reset playlist".
+91) You need to add the resetText to the resetButton element as a child, and also the resetButton to the playlistSongs element as a child. For this, there is an appendChild() method to use.
+appendChild() lets you add a node or an element as the child of another element. In the example below, the text "Click me" would be attached to the button:
+const parentElement = document.createElement("button")
+const parentElementText = document.createTextNode("Click me")
+// attach the text "Click me" to the button
+parentElement.appendChild(parentElementText)
+Use appendChild() to attach resetText to resetButton element, and resetButton to the playlistSongs element.
+92) Now, it's time to add the reset functionality to the resetButton. This will bring back the songs in the playlist when clicked.
+Add a click event listener to the resetButton variable. Pass in a callback using arrow syntax and leave it empty for now.
+93) To reset the playlist to its original state, spread allSongs into an array and assign it to userData.songs.
+Note: You should not use optional chaining for the userData.songs because the song will not be null or undefined at this point.
+94) 
+95) All the core functionalities are now in place. The only issue now is that the next song does not automatically play when the currently playing song ends.
+To fix that, you can set up an event listener which will detect when the currently playing song ends. The "ended" event listener is appropriate for this. It is fired when the playback of a media reaches the end.
+Add an event listener to the audio element which listens for the "ended" event. Pass in a callback using arrow syntax with empty curly braces.
 96) Notice that the album art in the HTML and songs in the userData.songs array have changed. We've swapped out the original songs for shorter ones that you can use to test your app in the upcoming steps.
 Next, you need to check if there is a next song to play. Retrieve the current song index by calling the getCurrentSongIndex() function, and save it in a currentSongIndex constant.
 After that, create a nextSongExists constant that contains the boolean value true or false depending on if the next song exists.
-97) Use an if statement to check if nextSongExists exists, then call the playNextSong() function in the if block. This will automatically play the next song when the current song ends.
-98) If there is no next song in the playlist, use the else block to reset the currentSong key of userData to null, and its songCurrentTime property to 0.
-99) With everything set in place, call the pauseSong(), setPlayerDisplay(), highlightCurrentSong(), and setPlayButtonAccessibleText() functions to correctly update the player.
-Congratulations on completing your music player! Now that we've finished testing and using the shorter songs, we've replaced them with the original tracks specially selected by Quincy for you to enjoy.
-
-### Date Formatter ###
-1) In this project, you will learn about the JavaScript Date object by building a date formatter.
-All of the HTML and CSS for this project have been provided for you.
-Start by getting the #current-date element using the .getElementById() method and assign it to a const variable called currentDateParagraph.
-2) Use the .getElementById() method to get the #date-options element and use const to assign it to a variable named dateOptionsSelectElement.
-3) In JavaScript, there are many built-in constructors that create objects. A constructor is like a regular function, but starts with a capital letter, and is initialized with the new operator.
-For example, you can use the Date() constructor with the new operator to create a new Date object that returns a string with the current date and time:
-const currentDate = new Date();
-console.log(currentDate);
-// Output:
-// Mon Aug 23 2021 15:31:00 GMT-0400 (Eastern Daylight Time)
-Create a new const variable called date and assign it a Date object with new Date().
-4) The Date object has a number of methods that allow you to get the date and time in different formats.
-One of those is the .getDate() method, which returns a number between 1 and 31 that represents the day of the month for that date. For example:
-const date = new Date();
-const dayOfTheMonth = date.getDate();
-console.log(dayOfTheMonth); // 20
-Using const, create a variable named day and assign it the day of the month from date with the .getDate() method.
-5) The .getMonth() method returns a number between 0 and 11. This represents the month for the date provided, where 0 is January and 11 is December. Because the number this method returns is zero-based, you need to add 1 to it to get the expected month number.
-Using const, create a variable named month and assign it the month from date with the .getMonth() method.
-Remember to add 1 to the number returned by .getMonth().
-6) The .getFullYear() method returns a number which represents the year for the provided date.
-Using const, create a variable named year and assign it the year from date with the .getFullYear() method.
-7) The .getHours() method returns a number between 0 and 23. This represents the hour for the provided date, where 0 is midnight and 23 is 11 p.m.
-Create a const variable named hours and assign it the hour from date with the .getHours() method.
-8) get minutes
-9) Next, create a const variable named formattedDate and assign it empty template literals.
-10) Inside the template literal, add an embedded expression that contains the day variable.
-14) Use the textContent property on currentDateParagraph to set its text content to the value of the formattedDate variable.
-Also, make sure to remove your console.log(formattedDate); line.
-15) In JavaScript, the change event is used to detect when the value of an HTML element has changed:
-element.addEventListener("change", () => {});
-Attach the addEventListener method to the dateOptionsSelectElement. The first argument of the event listener should be the string "change" and the second argument should be an empty arrow function.
-16) When a user makes a selection from the dropdown menu, the function should get the user's value and display the date in their chosen date format. To do this, you can use the switch statement.
-A switch statement is used to compare an expression against multiple possible values and execute different code blocks based on the match. It's commonly used for branching logic.
-For example, here's how to compare the expression dayOfWeek against possible values:
-switch (dayOfWeek) {
-  case 1:
-    console.log("It's Monday!");
-    break;
-  case 2:
-    console.log("It's Tuesday!");
-    break;
-  // ...cases for other workdays
-  default:
-    console.log("It's the weekend!");
-}
-Create a switch statement and use dateOptionsSelectElement.value as the expression.
-17) When the user chooses the Year, Month, Day option from the dropdown, the date format should reflect this choice.
-To do this, you can add a case clause in the switch statement that checks for a match against the expression expr, followed by code to run if there's a match. Here's an example where the case clause checks that expr is equal to the string "case123":
-switch (expr) {
-  case 'case123':
-    // Write your logic here
-}
-Add a case where the value is "yyyy-mm-dd". Inside the case, set the text content of currentDateParagraph to the value of formattedDate
-18) To format the date into yyyy-mm-dd, you will need to use the split, reverse, and join methods. But first, you will need to go through a few practice examples so you can better understand how to use them in the context of this project.
-The split() method is used to divide a string into substrings based on a specified separator. It then returns these substrings as elements of an array.
-Here is an example of taking the words "Hello World" and returning an array of one element:
-const greeting = "Hello World";
-greeting.split(); // ["Hello World"]
-Create a new const variable called exampleSentence and assign it the result of "selur pmaCedoCeerf".split().
-Then add a console statement to log the value of exampleSentence. Open up the console to see the result.
-19) The split method takes in a parameter known as a separator. The separator is used to tell the computer where each split should occur.
-Here is an example of using an empty string as a separator:
-// returns ["h", "e", "l", "l", "o"]
-"hello".split(""); 
-Other examples of separators can include a space " ", or a hyphen "-". If you don't provide a separator, the method will return an array with the original string as the only element.
-Update your split method, to use an empty string as a separator. Open up the console again to see the result.
-20) To reverse an array of elements, you can use the reverse method. This method reverses the order of the elements in the array in place. The first element becomes the last, and the last element becomes the first.
-Here is an example of using the reverse method:
-// returns [5, 4, 3, 2, 1]
-[1, 2, 3, 4, 5].reverse(); 
-Chain the reverse method to your split method. Open up the console again to see the result.
-Remember that you learned how to chain methods in the previous project like this:
-method1().method2().method3();
-21) In the previous project, you learned how to work with the join method. This method takes an array of elements and joins them into a string. Similar to the split method, the join method also takes an optional separator. If you don't provide a separator, the default separator is a comma.
-Here is an example of using the join method:
-// returns "1-2-3-4-5"
-[1, 2, 3, 4, 5].join("-");
-Chain the join method to your reverse method. Pass in an empty string as the separator.
-Open up the console and see the output.
-22) Now that you have a better understanding on how to work with the split, reverse, and join methods, you can delete your exampleSentence variable and console statement.
-23) 
-24) Next, reverse the formattedDate array. Make sure to use method chaining.
-25) Finally, join the results from the array reversal. Use a "-" as the separator. Remember to use method chaining.
-Test out your changes by selecting the Year, Month, Day option from the dropdown menu. The date should now be displayed in the format yyyy-mm-dd.
-26) If your switch statement is going to have multiple cases, it is best practice to include a break statement.
-The break statement will tell the JavaScript interpreter to stop executing statements. Without adding a break statement at the end of each case block, the program will execute the code for all matching cases:
-switch (someVariable) {
-  case 'case123':
-    // Write your logic here
-    break; // Terminates the switch statement
-}
-Add a break statement to the end of your case block.
-27) Add another case with the value "mm-dd-yyyy-h-mm". Inside that case, set the text content of currentDateParagraph to empty template literals.
-Also, make sure to include a break statement to terminate the switch statement.
-28) When the user selects the Month, Day, Year, Hours, Minutes option from the dropdown, you need to display the date in the format mm-dd-yyyy h Hours m Minutes.
-Inside the case for mm-dd-yyyy-h-mm, use string interpolation to assign the formatted date from above to the textContent property of currentDateParagraph. Make sure to use the month, day, year, hours, and minutes variables in your answer.
-29) In a switch statement, the default case is executed when none of the previous case conditions match the value being evaluated. It serves as a catch-all for any other possible cases. For example:
-const dayOfWeek = 7;
-switch (dayOfWeek) {
-  case 1:
-    console.log("It's Monday!");
-    break;
-  case 2:
-    console.log("It's Tuesday!");
-    break;
-  // ...cases for other workdays
-  default:
-    console.log("It's the weekend!");
-}
-For the default case, set the text content of currentDateParagraph to the value of formattedDate.
-And with that, your date formatter is complete! You can now format the current date three different ways.

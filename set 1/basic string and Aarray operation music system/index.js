@@ -8,73 +8,38 @@ const shuffleButton = document.getElementById("shuffle");
 const allSongs = [
   {
     id: 0,
-    title: "Scratching The Surface",
-    artist: "Quincy Larson",
-    duration: "4:25",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/scratching-the-surface.mp3",
+    title: "Hello World",
+    artist: "Rafael",
+    duration: "0:23",
+    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/hello-world.mp3",
   },
   {
     id: 1,
-    title: "Can't Stay Down",
-    artist: "Quincy Larson",
-    duration: "4:15",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3",
+    title: "In the Zone",
+    artist: "Rafael",
+    duration: "0:11",
+    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/in-the-zone.mp3",
   },
   {
     id: 2,
-    title: "Still Learning",
-    artist: "Quincy Larson",
-    duration: "3:51",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/still-learning.mp3",
+    title: "Camper Cat",
+    artist: "Rafael",
+    duration: "0:21",
+    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/camper-cat.mp3",
   },
   {
     id: 3,
-    title: "Cruising for a Musing",
-    artist: "Quincy Larson",
-    duration: "3:34",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/cruising-for-a-musing.mp3",
+    title: "Electronic",
+    artist: "Rafael",
+    duration: "0:15",
+    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/electronic.mp3",
   },
   {
     id: 4,
-    title: "Never Not Favored",
-    artist: "Quincy Larson",
-    duration: "3:35",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/never-not-favored.mp3",
-  },
-  {
-    id: 5,
-    title: "From the Ground Up",
-    artist: "Quincy Larson",
-    duration: "3:12",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/from-the-ground-up.mp3",
-  },
-  {
-    id: 6,
-    title: "Walking on Air",
-    artist: "Quincy Larson",
-    duration: "3:25",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/walking-on-air.mp3",
-  },
-  {
-    id: 7,
-    title: "Can't Stop Me. Can't Even Slow Me Down.",
-    artist: "Quincy Larson",
-    duration: "3:52",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/cant-stop-me-cant-even-slow-me-down.mp3",
-  },
-  {
-    id: 8,
-    title: "The Surest Way Out is Through",
-    artist: "Quincy Larson",
-    duration: "3:10",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/the-surest-way-out-is-through.mp3",
-  },
-  {
-    id: 9,
-    title: "Chasing That Feeling",
-    artist: "Quincy Larson",
-    duration: "2:43",
-    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/chasing-that-feeling.mp3",
+    title: "Sailing Away",
+    artist: "Rafael",
+    duration: "0:22",
+    src: "https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3",
   },
 ];
 
@@ -122,7 +87,7 @@ const playNextSong = () => {
   }
 };
 
-const playPreviousSong = () =>{
+const playPreviousSong = () => {
    if (userData?.currentSong === null) return;
    else {
     const currentSongIndex = getCurrentSongIndex();
@@ -251,19 +216,8 @@ previousButton.addEventListener("click", playPreviousSong);
 shuffleButton.addEventListener("click", shuffle);
 
 audio.addEventListener("ended", () => {
-  const currentSongIndex = getCurrentSongIndex();
-  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
-
-    if (nextSongExists) {
-      playNextSong();
-    } else {
-      userData.currentSong = null;
-      userData.songCurrentTime = 0;  
-pauseSong();
-setPlayerDisplay();
-highlightCurrentSong();
-setPlayButtonAccessibleText();
-    }
+  const currentSongIndex  = getCurrentSongIndex();
+  let nextSongExists = (userData.songs.length-1) === currentSongIndex ;
 });
 
 const sortSongs = () => {
