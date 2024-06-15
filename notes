@@ -1513,3 +1513,9 @@ Add an event listener to the audio element which listens for the "ended" event. 
 96) Notice that the album art in the HTML and songs in the userData.songs array have changed. We've swapped out the original songs for shorter ones that you can use to test your app in the upcoming steps.
 Next, you need to check if there is a next song to play. Retrieve the current song index by calling the getCurrentSongIndex() function, and save it in a currentSongIndex constant.
 After that, create a nextSongExists constant that contains the boolean value true or false depending on if the next song exists.
+
+### foot ball team cards ###
+1) In this project, you will build a set of football team cards and learn about nested objects, object destructuring, default parameters, event listeners, and switch statements. All of the HTML and CSS for this project has been provided for you.
+Start by accessing the id called "team" from the HTML document and storing it in a const variable called teamName.
+Remember, you can use the getElementById method for this.
+NOTE: The numbers for the team are organized alphabetically by last name. This differs from conventional numbering where the numbers correspond with what is on the player's jerseys.
