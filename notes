@@ -1519,3 +1519,59 @@ After that, create a nextSongExists constant that contains the boolean value tru
 Start by accessing the id called "team" from the HTML document and storing it in a const variable called teamName.
 Remember, you can use the getElementById method for this.
 NOTE: The numbers for the team are organized alphabetically by last name. This differs from conventional numbering where the numbers correspond with what is on the player's jerseys.
+2) Next, access the id called "sport" from the HTML document and store it in a const variable called typeOfSport. Below that variable, assign the id of "year" to a const variable called worldCupYear.
+5) Now it is time to build out the data structure that will hold all of the information for your football team.
+Below the variables you just created, create a new const variable called myFavoriteFootballTeam and assign it an empty object.
+6) 
+7) Below the team property, add a new property with a key named sport and a string value of "Football".
+8) Below the sport property, add a new property with a key named year and a number value of 1986.
+9) Below the year property, add a new property with a key named isWorldCupWinner and a boolean value set to true.
+10) Below the isWorldCupWinner property, add a new key called headCoach with a value of an empty object. Inside that object, add a property with a key of coachName and a string value of "Carlos Bilardo". Below that property, add another key called matches with a number value of 7.
+11) Below the headCoach property, create a new property with a key named players with the value of an empty array.
+12) Inside that players array, create a new object with the following properties:
+Example Code
+name: "Sergio Almirón"
+position: "forward"
+number: 1
+isCaptain: false
+nickname: null
+NOTE: The numbers for the team are organized alphabetically by last name. This differs from conventional numbering where the numbers correspond with what is on the player's jerseys.
+13)
+14) The rest of the data for the myFavoriteFootballTeam.players array has been filled out for you.
+The next step is to ensure that you can't modify this object by adding or removing any properties. We are going to use a method called Object.freeze(obj) which will freeze this object and prevent any changes being made to it.
+Use the Object.freeze() method to freeze the myFavoriteFootballTeam object
+15) The next step is to access the key called sport from the myFavoriteFootballTeam object and assign it to a new const variable called sport.
+Remember you can use dot notation for this.
+16) Below the sport variable, access the key called team from the myFavoriteFootballTeam object and assign it to a new const variable called team.
+17) In the last two steps, you have been accessing properties from the myFavoriteFootballTeam object using dot notation and assigning them to new const variables. But in JavaScript, there is an easier way to accomplish the same goal.
+The object destructuring syntax allows you to unpack values from arrays and objects:
+Example Code
+const developerObj = {
+  name: "Jessica Wilkins",
+  isDeveloper: true
+};
+// Object destructuring
+const { name, isDeveloper } = developerObj;
+Rewrite the two lines of code below using the new destructuring syntax. Your answer should be one line of code.
+18) 
+19) 
+20) Now you need to start displaying the team's information on the screen.
+Below your destructuring assignments, assign the sport variable to typeOfSport.textContent.
+Once you complete that task, you should see the result in the preview window.
+21) Next, assign the team variable to teamName.textContent.
+22) Assign the year variable to worldCupYear.textContent.
+Below that, assign the coachName variable to headCoach.textContent.
+You should now see all of that information displayed on the screen below Team stats.
+23) Now you will start building out the function that will show player cards based on the selections made by the user in the Filter Teammates dropdown menu.
+Start by creating an empty arrow function called setPlayerCards. You do not need to add a parameter because that will be taken care of in the next step.
+24) Function parameters can be initialized with default values. If a function is called without an argument, then the default value will be used:
+Example Code
+const greeting = (name = "Anonymous") => {
+  return "Hello " + name;
+} 
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
+Add a new parameter to your setPlayerCards function called arr and assign it a default value of players. Remember that you destructured the players variable from the myFavoriteFootballTeam object on line 175.
+25) The next step is to create a new array that will be responsible for adding the player card information to the page.
+Inside the setPlayerCards function, start by adding the map method to arr that will take in an empty callback function. Then, use the addition assignment += operator to assign the new array to playerCards.innerHTML.
+Remember that the innerHTML property gets, or in this case, sets the HTML markup for the playerCards element.
