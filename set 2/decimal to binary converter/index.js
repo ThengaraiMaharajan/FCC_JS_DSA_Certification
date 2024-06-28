@@ -75,6 +75,7 @@ const checkUserInput = () => {
     showAnimation();
     return;
   }
+  
 
   result.textContent = decimalToBinary(inputInt);
   numberInput.value = "";
